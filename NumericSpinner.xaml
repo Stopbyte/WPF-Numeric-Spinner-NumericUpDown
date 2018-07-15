@@ -52,12 +52,12 @@
                      Grid.Column="0" Grid.RowSpan="2" Text="0" />
             <Button x:Name="cmdUp" x:FieldModifier="private" Grid.Column="1" Grid.Row="0" Width="auto" Height="auto" Click="cmdUp_Click">
                 <Button.Content>
-                        <Image Source="/Stopbyte;component/Resources/Images/arrow_up.png" Width="9" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <Path HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black" Data="M4,0 L0,4 L8,4 z"/>
                 </Button.Content>
             </Button>
             <Button x:Name="cmdDown" x:FieldModifier="private" Grid.Column="1" Grid.Row="1" Width="auto" Height="auto" Click="cmdDown_Click">
                 <Button.Content>
-                    <Image Source="/Stopbyte;component/Resources/Images/arrow_down.png" Stretch="Uniform" Width="9" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <Path HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black" Data="M0,0 L8,0 L4,4 z"/>
                 </Button.Content>
             </Button>
             <Border BorderBrush="Gray" IsHitTestVisible="False" BorderThickness="1" CornerRadius="4" Grid.RowSpan="2" 
