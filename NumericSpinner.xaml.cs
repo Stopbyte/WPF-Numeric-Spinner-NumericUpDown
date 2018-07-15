@@ -20,6 +20,13 @@ namespace Stopbyte.Controls
     /// Interaction logic for NumericSpinner.xaml
     /// </summary>
     public NumericSpinner()
+    {
+        #region Fields
+        public event EventHandler PropertyChanged;
+        public event EventHandler ValueChanged;
+        #endregion
+
+        public NumericSpinner()
         {
             InitializeComponent();
 
