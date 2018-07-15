@@ -19,21 +19,16 @@ namespace Stopbyte.Controls
     /// <summary>
     /// Interaction logic for NumericSpinner.xaml
     /// </summary>
-    public partial class NumericSpinner : UserControl
-    {
-        #region Fields
-
-        public event EventHandler PropertyChanged;
-        public event EventHandler ValueChanged;
-
-        #endregion
-
-        public NumericSpinner()
+    public NumericSpinner()
         {
             InitializeComponent();
 
-            tb_main.SetBinding(TextBox.TextProperty, new Binding("Value") { ElementName = "root_numeric_spinner",
-                Mode = BindingMode.TwoWay, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged });
+            tb_main.SetBinding(TextBox.TextProperty, new Binding("Value")
+            {
+                ElementName = "root_numeric_spinner",
+                Mode = BindingMode.TwoWay,
+                UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+            });
 
             DependencyPropertyDescriptor.FromProperty(ValueProperty, typeof(NumericSpinner)).AddValueChanged(this, PropertyChanged);
             DependencyPropertyDescriptor.FromProperty(ValueProperty, typeof(NumericSpinner)).AddValueChanged(this, ValueChanged);
@@ -62,8 +57,10 @@ namespace Stopbyte.Controls
                 if (value > MaxValue)
                     value = MaxValue;
                 SetValue(ValueProperty, value);
+                ValueChanged(this,new EventArgs());
             }
         }
+
 
         #endregion
 
@@ -73,7 +70,7 @@ namespace Stopbyte.Controls
             "Step",
             typeof(decimal),
             typeof(NumericSpinner),
-            new PropertyMetadata(new decimal(0.1)));
+            new PropertyMetadata(new decimal(0.1))); 
 
         public decimal Step
         {
@@ -146,7 +143,7 @@ namespace Stopbyte.Controls
         }
 
         #endregion
-        
+
         /// <summary>
         /// Revalidate the object, whenever a value is changed...
         /// </summary>
@@ -171,5 +168,9 @@ namespace Stopbyte.Controls
             Value -= Step;
         }
 
+        private void tb_main_Loaded(object sender, RoutedEventArgs e)
+        {
+            ValueChanged(this, new EventArgs());
+        }
     }
 }
