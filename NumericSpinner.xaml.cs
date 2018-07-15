@@ -19,9 +19,10 @@ namespace Stopbyte.Controls
     /// <summary>
     /// Interaction logic for NumericSpinner.xaml
     /// </summary>
-    public NumericSpinner()
+    public partial class NumericSpinner : UserControl
     {
         #region Fields
+
         public event EventHandler PropertyChanged;
         public event EventHandler ValueChanged;
         #endregion
